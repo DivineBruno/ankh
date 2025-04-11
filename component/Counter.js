@@ -4,6 +4,42 @@ import { useState } from "react";
 
 function Counter(props) {
     const [count, setCount] = useState(0);
+    const [isLoading, setIsLoading] = useState(false);
+
+    async function handleCounterAction(action) {
+        setIsLoading(true);
+
+        try {
+        const res = await fetch("/api/counter", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                action,
+                counterId: id,
+            }),
+        });
+        if (!Response.ok) {throw new Error("Failed to update counter");
+          }
+        // Update local state after successful APi call
+        setCount((prev) => (action === "increment" ? prev + 1 : prev - 1));
+        } catch (error) {
+        console.error("Error updating counter:", error);
+        } finally {
+        setIsLoading(false);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
 
     return ( 
     <div className="flex flex-col items-center gap-4 p-6 rounded-lg border border-gray-200 shadow-md">

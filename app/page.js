@@ -2,16 +2,24 @@ import Counter from "@/component/Counter";
 import Link from "next/link";
 
 export default function Home() {
+  const isLoggedIn = true; 
+  const name = "Bruno"; 
+
+  console.log(process.env.MONGO_URI);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Counter title="Counter #1"/>
-        <Counter title="Counter #2"/>
-        <Counter title="Counter #3"/>
+       <main>
+          {/* HEADER */}
+          <section className="bg-base-200"></section>
+
+          {/* HERO */}
+          <section className="text-center lg:text-left py-32 px-8 max-w-5xl mx-auto"></section>
+
+          {/* PRICING */}
+          <section className="bg-base-200"  id="pricing"> </section>
+
+          {/* FAQ */}
+          <section className="bg-base-200" id="faq"> </section>
       </main>
-      <Link href="/dashboard" className="underline">
-      Dashboard
-      </Link>
-    </div> 
   );
 }
