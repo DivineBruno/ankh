@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ankh Project
+
+A countdown timer website built with Next.js.
 
 ## Getting Started
 
@@ -19,6 +21,24 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Deployment
+
+This project is configured for deployment on Vercel:
+
+1. Push this repository to GitHub
+2. Visit [Vercel](https://vercel.com)
+3. Click "Add New Project"
+4. Connect your GitHub repository
+5. Select the main branch
+6. Keep the default build settings (Vercel auto-detects Next.js)
+7. Click "Deploy"
+
+The site will be automatically deployed and you'll receive a production URL.
+
+## Environment Variables
+
+No additional environment variables are required for deployment.
 
 ## Learn More
 
