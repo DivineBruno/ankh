@@ -1,72 +1,44 @@
-"use client";
+'use client'
+import { useState, useEffect } from 'react'
+import styles from './Counter.module.css'
+import targetDateTime from '../config/dateConfig'
 
-import { useState } from "react";
+const Counter = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0
+  })
 
-function Counter(props) {
-    const [count, setCount] = useState(0);
-    const [isLoading, setIsLoading] = useState(false);
-
-    async function handleCounterAction(action) {
-        setIsLoading(true);
-
-        try {
-        const res = await fetch("/api/counter", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                action,
-                counterId: id,
-            }),
-        });
-        if (!Response.ok) {throw new Error("Failed to update counter");
-          }
-        // Update local state after successful APi call
-        setCount((prev) => (action === "increment" ? prev + 1 : prev - 1));
-        } catch (error) {
-        console.error("Error updating counter:", error);
-        } finally {
-        setIsLoading(false);
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-    return ( 
-    <div className="flex flex-col items-center gap-4 p-6 rounded-lg border border-gray-200 shadow-md">
-      <h2 className="text-xl font-semibold">{props.title}</h2>
-
-      <div className="flex items-center gap-4">
-        <button 
-        onClick={() => setCount((prev) => prev - 1)}
-        className="btn btn-circle btn-outline  border-gray-200 shadow-md"
-        > 
-          -
-        </button>
-
-        <span className="text-2xl font-mono min-w-[3ch] text-center">
-            {count}
-        </span>
-         
-          <button 
-          onClick={() => setCount((prev) => prev + 1)}
-          className="btn btn-circle btn-outline"
-        >
-          +
-        </button>
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date().getTime()
+      const distance = targetDateTime - now
       
-      </div>
-      </div>
-      )
+      setTimeLeft({
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+      })
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [])
+
+  const FlipNumber = ({ number, label }) => (
+    <div className={styles.flipContainer}>
+      <div className={styles.flipNumber}>{String(number).padStart(2, '0')}</div>
+      <div className={styles.label}>{label}</div>
+    </div>
+  )
+
+  return (
+    <div className={styles.counter}>
+      <FlipNumber number={timeLeft.days} label="DAYS" />
+      <FlipNumber number={timeLeft.hours} label="HOURS" />
+      <FlipNumber number={timeLeft.minutes} label="MINUTES" />
+    </div>
+  )
 }
 
- export default Counter;
+export default Counter

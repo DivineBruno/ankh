@@ -1,25 +1,18 @@
 import Counter from "@/component/Counter";
-import Link from "next/link";
+import styles from './page.module.css'
 
 export default function Home() {
-  const isLoggedIn = true; 
-  const name = "Bruno"; 
-
-  console.log(process.env.MONGO_URI);
+  // Set a specific target date instead of relative time
+  const targetDate = new Date('2025-07-06T09:25:00').getTime();
+  // For testing purposes you can use this instead:
+  // const targetDate = new Date().getTime() + (24 * 60 * 60 * 1000);
 
   return (
-       <main>
-          {/* HEADER */}
-          <section className="bg-base-200"></section>
-
-          {/* HERO */}
-          <section className="text-center lg:text-left py-32 px-8 max-w-5xl mx-auto"></section>
-
-          {/* PRICING */}
-          <section className="bg-base-200"  id="pricing"> </section>
-
-          {/* FAQ */}
-          <section className="bg-base-200" id="faq"> </section>
-      </main>
-  );
+    <main className={styles.main}>
+      <div className={styles.container}>
+        <h1 className={styles.title}>COMING SOON...</h1>
+        <Counter targetDate={targetDate} />
+      </div>
+    </main>
+  )
 }
