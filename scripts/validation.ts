@@ -1,8 +1,8 @@
-import { RESTClient } from 'bybit-api/dist/rest-client';
+import { RestClient } from 'bybit-api';
 
 export async function testBybitConnection(apiKey: string, apiSecret: string) {
   try {
-    const client = new RESTClient(
+    const client = new RestClient(
       apiKey,
       apiSecret,
       true // use testnet for safety
