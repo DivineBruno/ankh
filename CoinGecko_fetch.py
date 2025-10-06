@@ -10,43 +10,35 @@ cg = CoinGeckoAPI()
 tokens = {
 'aave':'aave',
 'ada':'cardano',
+'algo':'algorand',
 'ape':'apecoin',
 'apt':'aptos',
 'arb':'arbitrum',
-'asr':'as-roma-fan-token',
 'avax':'avalanche-2',
+'axs':'axie-infinity',
 'bch':'bitcoin-cash',
-'bgb':'bitget-token',
 'bonk':'bonk',
 'cro':'crypto-com-chain',
 'crv':'curve-dao-token',
 'cvx':'convex-finance',
 'doge':'dogecoin',
 'dot':'polkadot',
+'dydx':'dydx-chain',
 'ens':'ethereum-name-service',
-'etc':'ethereum-classic',
 'fet':'fetch-ai',
 'fil':'filecoin',
-'hbar':'hedera-hashgraph',
+'floki' : 'floki-inu',
+'gala':'gala',
 'inj':'injective-protocol',
 'jasmy':'jasmycoin',
 'kas':'kaspa',
-'kava':'kava',
 'ldo':'lido-dao',
-'leo':'leo-2',
 'link':'chainlink',
+'mana':'decentraland',
 'near':'near',
 'ondo':'ondo-finance',
-'paxg':'pax-gold',
-'pendle':'pendle',
 'pepe':'pepe',
-'sei':'sei-network',
-'shib':'shiba-inu',
-'sui':'sui',
-'uni':'uniswap',
-'xlm':'stellar',
-'xmr':'monero',
-'xrp':'ripple'
+'sand':'the-sandbox'
 
 }
 
@@ -110,4 +102,4 @@ df = pd.DataFrame(token_data)
 # Save to Excel file
 df.to_excel("coingecko_token_data.xlsx", index=False)
 
-print("\nResults saved to coingecko_token_data.xlsx")
+print("\nResults saved to coingecko_market_cap.xlsx")
