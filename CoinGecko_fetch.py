@@ -10,6 +10,7 @@ cg = CoinGeckoAPI()
 tokens = {
     'AAVE': 'aave',
     'ADA': 'cardano',
+    'AERO': 'aerodrome-finance',
     'ALGO': 'algorand',
     'ANKR': 'ankr',
     'APE': 'apecoin',
@@ -39,10 +40,8 @@ tokens = {
     'HBAR': 'hedera-hashgraph',
     'INJ': 'injective-protocol',
     'JASMY': 'jasmycoin',
-    'KAS': 'kaspa',
     'KAVA': 'kava',
     'LDO': 'lido-dao',
-    'LEO': 'leo-token',
     'LINK': 'chainlink',
     'MANA': 'decentraland',
     'NEAR': 'near',
@@ -51,17 +50,19 @@ tokens = {
     'PENDLE': 'pendle',
     'PEPE': 'pepe',
     'REEF': 'reef',
+    'RENDER': 'render-token',
+    'RTXWETH': '',  # <-- Update with correct CoinGecko ID if available
     'SAND': 'the-sandbox',
     'SEI': 'sei-network',
     'SHIB': 'shiba-inu',
     'SUI': 'sui',
     'SXP': 'swipe',
+    'TAO': 'bittensor',
     'UNI': 'uniswap',
+    'VET': 'vechain',
     'XLM': 'stellar',
     'XMR': 'monero',
-    'XRP': 'ripple',
     'ZRX': '0x'
-
 }
 
 # Function to fetch market cap and circulating supply
