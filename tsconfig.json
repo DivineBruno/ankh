@@ -22,16 +22,21 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
     "strictNullChecks": true
     },
-  "include": [
+    "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx",
-    "scripts/**/*.ts"
+    "**/*.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "scripts",
+    "src/bot"
   ]
 }

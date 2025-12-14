@@ -1,12 +1,12 @@
-import { RestClient } from 'bybit-api';
-
 export async function testBybitConnection(apiKey: string, apiSecret: string) {
   try {
-    const client = new RestClient(
-      apiKey,
-      apiSecret,
-      true // use testnet for safety
-    );
+    const bybit = (await import('bybit-api')) as any;
+    const RESTClientClass = bybit.RESTClient || bybit.REST || bybit.default?.RESTClient || bybit.default;
+    const client = new RESTClientClass({
+      key: apiKey,
+      secret: apiSecret,
+      testnet: true,
+    });
 
     // Try to fetch account info to validate connection
     const serverTime = await client.getServerTime();
